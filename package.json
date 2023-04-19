@@ -1,0 +1,19 @@
+{
+  "name": "smoothstep",
+  "version": "1.0.0",
+  "description": "Smooth Step Theme",
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.2.3",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^3.2.7"
+  },
+  "scripts": {
+    "watch": "npx tailwindcss -i ./assets/style/input.css -o ./assets/style.css --watch",
+    "dev": "npx tailwindcss -i ./assets/style/input.css -o ./assets/style.css",
+    "prod": "NODE_ENV=production npx tailwindcss -i ./assets/style/input.css -o ./assets/style.min.css"
+  },
+  "author": "Dharmawan Sukma",
+  "license": "ISC"
+}

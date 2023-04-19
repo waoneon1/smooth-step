@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1384" height="1080.287" viewBox="0 0 1384 1080.287">
+  <defs>
+    <filter id="linear-angled-overlay" x="0" y="0" width="1384" height="1080.287" filterUnits="userSpaceOnUse">
+      <feOffset dx="40" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#9f94aa" flood-opacity="0.322"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#linear-angled-overlay)">
+    <path id="linear-angled-overlay-2" data-name="linear-angled-overlay" d="M0,1080,272,0V1080.287Zm272,0V0H1344V1080Z" transform="translate(1344 1080.29) rotate(180)" fill="#3f2a56"/>
+  </g>
+</svg>
