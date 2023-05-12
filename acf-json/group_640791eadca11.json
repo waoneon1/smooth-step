@@ -3,6 +3,25 @@
     "title": "Detail Books",
     "fields": [
         {
+            "key": "field_645e64311413b",
+            "label": "Blurb",
+            "name": "blurb",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
             "key": "field_6407926647970",
             "label": "How to",
             "name": "how_to",
@@ -106,6 +125,70 @@
             "key": "field_6407930247976",
             "label": "Services",
             "name": "services",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_645e70a295527",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_645e705cd03eb",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_645e4ce44305a",
+            "label": "Book WA Message",
+            "name": "book_wa_message",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -118,10 +201,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6407930e47977",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
+                    "key": "field_645e4d124305b",
+                    "label": "Use Default Message",
+                    "name": "use_default_message",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -130,35 +213,38 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Photo of our service",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
-                    "key": "field_6425a55344e23",
-                    "label": "Service",
-                    "name": "service",
-                    "type": "post_object",
+                    "key": "field_645e4d934305c",
+                    "label": "Custom Message",
+                    "name": "custome_message",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_645e4d124305b",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "post"
-                    ],
-                    "taxonomy": [
-                        "category:book"
-                    ],
-                    "allow_null": 0,
-                    "multiple": 1,
-                    "return_format": "object",
-                    "ui": 1
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "br"
                 }
             ]
         }
@@ -180,5 +266,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1680188790
+    "modified": 1683910867
 }

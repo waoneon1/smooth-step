@@ -16,9 +16,8 @@
     <div class="relative container mx-auto max-w-6xl px-5 pt-20 pb-20">
       <div class="block md:flex">
         <div class="w-full md:w-9/12 md:pr-20 mb-10">
-          <h4 class="relative text-2xl text-white font-semibold mb-5">Payment Method</h4>
-          <p class="text-white mb-5 pr-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h4 class="relative text-2xl text-white font-semibold mb-5"><?php echo get_field('footer', 'option')['title'] ?></h4>
+          <p class="text-white mb-5 pr-10"><?php echo get_field('footer', 'option')['description'] ?></p>
           <div class="flex gap-8 justify-start py-5">
             <img src="<?php echo get_template_directory_uri() ?>/assets/img/payment.png"
                 srcset="<?php echo get_template_directory_uri() ?>/assets/img/payment@2x.png 2x">
@@ -33,8 +32,8 @@
               </a>
             </li>
             <li class="rounded-full">
-              <?php $msg  = "Hi i need your help" ?>
-              <a target="_blank" href="<?php echo 'https://api.whatsapp.com/send?phone='.get_field('no_whatsapp', 'option').'&text='.$msg; ?>">
+              <?php $msg  = get_field('whatsapp', 'option')['footer_message'] ?>
+              <a target="_blank" href="<?php echo 'https://api.whatsapp.com/send?phone='.get_field('whatsapp', 'option')['no'].'&text='.$msg; ?>">
                 <img src="<?php echo get_template_directory_uri() ?>/assets/img/social/wa.svg" style="width: 40px; height: 40px;">
               </a>
             </li>
@@ -112,18 +111,21 @@
      */ 
     var scroll = $(window).scrollTop();
     if (scroll >= 10) {
-      $("header").addClass("bg-white/80");
+      $("header").addClass("bg-primary");
+      $("header").addClass("sticky-header");
       $("header").addClass("shadow");
     }
 
     $(window).scroll(function () {
       var scroll = $(window).scrollTop();
       if (scroll >= 10) {
-        $("header").addClass("bg-white/80");
+        $("header").addClass("bg-primary");
+        $("header").addClass("sticky-header");
         $("header").addClass("shadow");
         // $("header div").removeClass("md:my-4");
       } else {
-        $("header").removeClass("bg-white/80");
+        $("header").removeClass("bg-primary");
+        $("header").removeClass("sticky-header");
         $("header").removeClass("shadow");
         // $("header div").addClass("md:my-4");
       }

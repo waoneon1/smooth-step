@@ -42,7 +42,6 @@ class IGFeedAPI
         . '&access_token=' . self::$access_token
         . '&limit=' . self::$limit;
 
-
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $full_url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

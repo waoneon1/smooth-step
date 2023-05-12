@@ -198,10 +198,16 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
 
-function booknow($title) {
-	$no = get_field("no_whatsapp", "option");
-	$msg = "I want to book ".$title;
-	echo 'https://api.whatsapp.com/send?phone='.$no.'&text='.$msg;
+function booknow($title, $default) {
+	$no = get_field("whatsapp", "option")['no'];
+	
+	if ($default) {
+		$msg = get_field('whatsapp', 'option')['default_message'] . ' ' . $title;
+		echo 'https://api.whatsapp.com/send?phone='.$no.'&text='.$msg;
+	} else {
+		$msg = str_replace("<br />","%0A",$title);
+		echo 'https://api.whatsapp.com/send?phone='.$no.'&text='.$msg;
+	}
 }
 
 

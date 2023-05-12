@@ -75,6 +75,25 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_645e67d5b68b4",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "br"
+                },
+                {
                     "key": "field_64070bcec2cdd",
                     "label": "Items",
                     "name": "items",
@@ -323,5 +342,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1680010209
+    "modified": 1683908582
 }

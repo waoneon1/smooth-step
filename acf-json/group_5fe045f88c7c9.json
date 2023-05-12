@@ -95,9 +95,9 @@
         },
         {
             "key": "field_64259bb96c2d2",
-            "label": "No Whatsapp",
-            "name": "no_whatsapp",
-            "type": "text",
+            "label": "Whatsapp",
+            "name": "whatsapp",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -106,11 +106,66 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_645e4f1fbd39d",
+                    "label": "No",
+                    "name": "no",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_645e4f2abd39e",
+                    "label": "Default Message",
+                    "name": "default_message",
+                    "type": "text",
+                    "instructions": "input: Hai i want to book \r\n\r\noutput: Hai i want to book Travel package https:\/\/doman.com\/detailpage",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_645e4f34bd39f",
+                    "label": "Footer Message",
+                    "name": "footer_message",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         },
         {
             "key": "field_642d7d9fc4eda",
@@ -149,5 +204,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1680703532
+    "modified": 1683902408
 }

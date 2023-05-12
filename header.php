@@ -25,7 +25,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sstep' ); ?></a>
 
-	<div id="masthead" class="flex justify-between fixed w-full z-20 px-10 py-5">
+	<header id="masthead" class="flex justify-between fixed w-full z-50 px-10 py-5">
 		<a href="<?php echo home_url( '/' ) ?>">
 			<img class="h-12" src="<?php echo get_template_directory_uri() ?>/assets/img/logo.svg">
 		</a>
@@ -41,4 +41,4 @@
       	<?php endforeach ?>	
       </ul>
 		</nav><!-- #site-navigation -->
-	</div><!-- #masthead -->
+	</header><!-- #masthead -->

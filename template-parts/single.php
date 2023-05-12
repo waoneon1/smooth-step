@@ -1,9 +1,9 @@
 <div class="bg-primary w-full h-24"></div>
 <section id="banner" class="mx-auto relative">
-  <div class="relative text-white pb-10">
+  <div class="relative text-white pb-10" data-aos="zoom-out">
     <div class="h-96 w-full bg-cover bg-no-repeat" data-background="<?php echo get_the_post_thumbnail_url(); ?>"></div>
   </div>
-  <div class="relative mx-auto max-w-6xl mx-5">
+  <div class="relative mx-auto max-w-6xl px-5 mx-5" data-aos="fade-up">
     <h2 class="mb-5 relative text-3xl  font-bold mb-8 z-10"><?php the_title(); ?></h2>
     <div class="mb-10"><?php the_content(); ?></div>
   </div>
@@ -11,7 +11,7 @@
 
 <section id="about" class="mx-auto relative">
   <div class="relative bg-primary text-white pt-20 pb-10">
-    <div class="container max-w-6xl mx-auto">
+    <div class="container max-w-6xl px-5 mx-auto" data-aos="fade-right">
       <h4 class="relative z-10 text-secondary">How To</h4>
       <h2 class="relative text-3xl text-white font-bold mb-8 z-10">Book Us</h2>
       <div class="w-full md:w-3/5">
@@ -30,12 +30,17 @@
           </ol>
         </div>
         <div class="w-full flex justify-center relative z-10">
-          <a target="_blank" href="<?php booknow(get_the_title()) ?>" class="inline-block text-center w-full text-white bg-secondary text-lg px-10 py-4 font-bold">Book Now</a>
+          <?php if (get_field('book_wa_message')['use_default_message']): ?>
+            <a target="_blank" href="<?php booknow(get_the_title() . ' ' . get_the_permalink(), true ) ?>" class="w-full inline-block text-white bg-secondary font-bold px-8 py-5 mr-5">Book Now</a>
+          <?php else: ?>
+            <a target="_blank" href="<?php booknow(get_field('book_wa_message')['custome_message'], false ) ?>" class="w-full inline-block text-white bg-secondary font-bold px-8 py-5 mr-5">Book Now</a>
+          <?php endif ?>
         </div>
       </div>
     </div>
     <div class="slider-banner absolute right-0 top-0 w-full md:w-2/5 h-full bg-gray-200 bg-cover bg-no-repeat" 
       data-background="<?php echo get_field("how_to")["image"]["url"] ?>"
+      data-aos="fade-left"
     >
       <div class="flex h-full">
         <img class="h-full" src="<?php echo get_template_directory_uri() ?>/assets/img/about.svg">
@@ -44,14 +49,40 @@
   </div>
 </section>
  
-<section id="books" class="container max-w-6xl mx-auto pt-20 pb-20 relative bg-white overflow-hidden">
+<?php if (get_field("services")): ?>
+  <section id="books" class="container max-w-6xl px-5 mx-auto pt-20 pb-10 relative bg-white overflow-hidden">
+    <div class="w-full flex justify-center">
+      <h2 class="relative text-3xl font-bold mb-10 z-10">Photo of Our Services</h2>
+    </div>
+    <div class="block md:flex gap-8 relative justify-center" style="outline: none;" data-aos="fade-up">
+      <?php foreach (get_field("services") as $key => $service): ?>
+        <div class="px-3 w-full mb-5">
+          <div class="rounded shadow-md text-center bg-primary w-full">
+            <img 
+              class="w-full rounded-t" 
+              src="<?php echo $service['image']['url'] ?>" 
+              srcset="<?php echo $service['image']['url'] ?> 2x"
+              alt="<?php the_title() ?>"
+            > 
+            <div class="p-6 flex flex-col justify-between">
+              <h4 class="text-base mb-5 text-white" style="min-height: 56px;"><?php echo get_field('blurb') ?></h4>
+            </div>
+          </div>
+        </div>
+      <?php endforeach ?>
+    </div>
+  </section>
+<?php endif ?>
+
+<section id="books" class="container max-w-6xl px-5 mx-auto pt-20 pb-20 relative bg-white overflow-hidden">
   <div class="w-full flex justify-center">
-    <h2 class="relative text-3xl font-bold mb-10 z-10">Photo of Our Services</h2>
+    <h2 class="relative text-3xl font-bold mb-10 z-10">Related Services</h2>
   </div>
   <div class="block md:flex gap-8 relative justify-center"
     style="outline: none;" 
+    data-aos="fade-up"
   >
-    <?php $args = array( 'posts_per_page' => 2)?>
+    <?php $args = array( 'posts_per_page' => 3 , 'orderby' => 'rand')?>
     <?php $query = new WP_Query($args); ?>
     <?php if ( $query->have_posts() ) : ?>
       <?php while ( $query->have_posts() ) : $query->the_post() ?>
@@ -64,10 +95,14 @@
               alt="<?php the_title() ?>"
             > 
             <div class="p-6 flex flex-col justify-between">
-              <h4 class="text-lg mb-5 text-white" style="min-height: 56px;"><?php the_title() ?></h4>
+              <h4 class="text-base mb-5 text-white" style="min-height: 56px;"><?php echo get_field('blurb') ?></h4>
               <div class="flex items-center justify-around">
-                <a target="_blank" href="<?php booknow(get_the_title()) ?>" class="w-full inline-block text-white bg-secondary font-bold px-8 py-5 mr-5">Book Now</a>
-                <a href="<?php the_permalink() ?>" class="w-full inline-block  text-black bg-white px-8 py-5">See Detail</a>
+                <?php if (get_field('book_wa_message')['use_default_message']): ?>
+                  <a target="_blank" href="<?php booknow(get_the_title() . ' ' . get_the_permalink(), true ) ?>" class="w-full inline-block text-white bg-secondary font-bold px-5 py-3 mr-5">Book Now</a>
+                <?php else: ?>
+                  <a target="_blank" href="<?php booknow(get_field('book_wa_message')['custome_message'], false ) ?>" class="w-full inline-block text-white bg-secondary font-bold px-5 py-3 mr-5">Book Now</a>
+                <?php endif ?>
+                <a href="<?php the_permalink() ?>" class="w-full inline-block  text-black bg-white px-5 py-3">See Detail</a>
               </div>
             </div>
           </div>
