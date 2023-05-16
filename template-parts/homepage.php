@@ -61,7 +61,7 @@
   <div class="relative container pt-20 pb-20 max-w-6xl px-5 mx-auto z-10">
     <h2 class="relative text-3xl text-white font-bold mb-8 z-10" data-aos="fade-right"><?php echo get_field("our_advantages")["title"] ?></h2>
    	<p class="text-white mb-5 text-lg font-light max-w-xl" data-aos="fade-right"><?php echo get_field("our_advantages")["description"] ?></p>
-    <a href="" class="inline-block text-white bg-secondary text-lg px-10 py-4 font-bold mb-5" data-aos="fade-right">Watch how we do it</a>
+    <!-- <a href="" class="inline-block text-white bg-secondary text-lg px-10 py-4 font-bold mb-5" data-aos="fade-right">Watch how we do it</a> -->
     <div class="block md:flex mt-10 gap-8" data-aos="fade-up">
    		<?php foreach (get_field("our_advantages")["items"] as $key => $item): ?>
    			<div class="w-full bg-white rounded shadow p-5 relative mb-5">
