@@ -35,7 +35,8 @@
                 alt="<?php the_title() ?>"
               > 
               <div class="mt-5 flex flex-col justify-between">
-                <h4 class="text-base mb-5 text-white" style="min-height: 56px;"><?php echo get_field('blurb') ?></h4>
+                <h4 class="text-white text-lg mb-3 font-semibold"><?php the_title() ?></h4>
+                <p class="text-sm font-light mb-5 text-white" style="min-height: 56px;"><?php echo get_field('blurb') ?></p>
                 <div class="flex items-center justify-around">
                   <?php if (get_field('book_wa_message')['use_default_message']): ?>
                     <a target="_blank" href="<?php booknow(get_the_title() . ' ' . get_the_permalink(), true ) ?>" class="w-full inline-block text-white bg-secondary font-bold px-8 py-5 mr-5">Book Now</a>
